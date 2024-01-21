@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 // icons
 import {
+  RiCloseFill,
   RiFileVideoLine,
   RiHeartAddLine,
   RiHomeLine,
@@ -55,7 +56,7 @@ export const Siderbar = () => {
         className="fixed bottom-10 right-10 bg-purple-100 rounded-full p-3 box-content text-primary border-none outline-none lg:hidden z-50"
         onClick={handleShowMenu}
       >
-        <RiMenuLine />
+        {showMenu ? <RiCloseFill /> : <RiMenuLine />}
       </button>
     </>
   );
