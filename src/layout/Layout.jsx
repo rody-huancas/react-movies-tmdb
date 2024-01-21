@@ -6,11 +6,11 @@ export const Layout = () => {
     <div className="flex">
       <Siderbar />
 
-      <div className="w-full flex-1">
+      <div className="flex-1 h-[150vh] bg-secondary-900 text-secondary-100 transition-all duration-300">
         <Header />
 
-        <main className="pl-0">
-          <div className="p-10">
+        <main className="lg:pl-300 mt-24">
+          <div className="px-10 py-5">
             {/* Inyectar contenido dinamicamente */}
             <Outlet />
           </div>

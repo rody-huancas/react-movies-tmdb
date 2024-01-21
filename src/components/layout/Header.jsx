@@ -2,8 +2,8 @@ import { RiSearch2Line } from "react-icons/ri";
 
 export const Header = () => {
   return (
-    <header className="pl-0 w-auto lg:w-full bg-primary text-secondary-100 h-20 flex items-center">
-      <form className="flex items-center gap-2 w-40 p-10">
+    <header className="w-full fixed bg-primary lg:pl-300 dark:bg-secondary-200 transition-all duration-300">
+      <form className="flex items-center gap-2 w-40 p-7">
         <div className="flex items-center relative">
           <RiSearch2Line className="absolute p-2 box-content text-secondary-900" />
           <input

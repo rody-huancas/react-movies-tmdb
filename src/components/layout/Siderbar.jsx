@@ -18,9 +18,9 @@ export const Siderbar = () => {
   return (
     <>
       <div
-        className={`h-screen overflow-y-hidden lg:static bg-primary w-300 text-secondary-100 flex flex-col gap-10 p-10 fixed z-50 ${
+        className={`w-300 h-screen lg:left-0 px-6 py-10 bg-primary flex flex-col gap-7 z-40 transition-all duration-300 fixed top-0 ${
           showMenu ? "left-0" : "-left-full"
-        } transition-all duration-300 ease-in`}
+        }`}
       >
         <Link
           to={"/"}
@@ -52,7 +52,7 @@ export const Siderbar = () => {
       </div>
 
       <button
-        className="fixed bottom-10 right-10 bg-purple-100 rounded-full p-3 box-content text-primary border-none outline-none lg:hidden"
+        className="fixed bottom-10 right-10 bg-purple-100 rounded-full p-3 box-content text-primary border-none outline-none lg:hidden z-50"
         onClick={handleShowMenu}
       >
         <RiMenuLine />
