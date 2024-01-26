@@ -8,3 +8,12 @@ export const fetchDataMovies = async () => {
     console.log(error.message);
   }
 };
+
+export const fetchDetailMovie = async (id) => {
+  try {
+    const { data } = await configApi(`/${id}`);
+    return data;
+  } catch (error) {
+    console.log(error.message);
+  }
+};

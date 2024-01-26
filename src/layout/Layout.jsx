@@ -1,12 +1,13 @@
 import { Footer, Header, Siderbar } from "../components";
 import { Outlet } from "react-router-dom";
+import "../styles/global.css";
 
 export const Layout = () => {
   return (
     <div className="flex">
       <Siderbar />
 
-      <div className="flex-1 h-[150vh] bg-secondary-900 text-secondary-100 transition-all duration-300">
+      <div className="flex-1 bg-secondary-900 text-secondary-100 transition-all duration-300">
         <Header />
 
         <main className="lg:pl-300 mt-24">

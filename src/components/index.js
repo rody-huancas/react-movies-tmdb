@@ -5,3 +5,6 @@ export * from "./layout/Siderbar";
 
 // spinner
 export * from "./spinner/Loader";
+
+// Home
+export * from "./home/CardMovie";

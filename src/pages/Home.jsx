@@ -1,5 +1,5 @@
 import { fetchDataMovies } from "../api/movieApi";
-import { Loader } from "../components";
+import { CardMovie, Loader } from "../components";
 import useMovie from "../hooks/useMovie";
 import { useEffect, useState } from "react";
 
@@ -24,13 +24,24 @@ export const Home = () => {
     fetchMovieAll();
   }, []);
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   return (
     <>
       {loader ? (
-        <Loader />
+        <div className="py-52">
+          <Loader />
+        </div>
       ) : (
-        <div>
-          <h1>datos</h1>
+        <div className="grid grid-cols-3 gap-5">
+          {movies &&
+            movies.map((movie) => (
+              <>
+                <CardMovie key={movie.id} movie={movie} />
+              </>
+            ))}
         </div>
       )}
     </>

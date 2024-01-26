@@ -19,7 +19,7 @@ export const Siderbar = () => {
   return (
     <>
       <div
-        className={`w-300 h-screen lg:left-0 px-6 py-10 bg-primary flex flex-col gap-7 z-40 transition-all duration-300 fixed top-0 ${
+        className={`w-300 h-screen lg:left-0 px-6 py-10 bg-primary flex flex-col gap-7 z-50 transition-all duration-300 fixed top-0 ${
           showMenu ? "left-0" : "-left-full"
         }`}
       >
