@@ -1,11 +1,15 @@
-.card_item:hover>.view_movie {
-    right: 0;
+.card_item:hover > .view_movie {
+  right: 0;
 }
 
 .card_item img {
-    transition: transform 0.5s ease;
+  transition: transform 0.5s ease;
 }
 
 .card_item:hover img {
-    transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+::-webkit-scrollbar {
+  width: 0px;
 }

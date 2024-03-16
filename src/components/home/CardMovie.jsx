@@ -8,7 +8,7 @@ export const CardMovie = ({ movie }) => {
 
   return (
     <div className="relative overflow-hidden card_item flex w-full max-w-xs flex-col ">
-      <div className="w-80 h-60 bg-primary p-7 rounded-xl shadow-lg flex flex-col justify-between items-center gap-5">
+      <div className="bg-primary p-7 rounded-xl shadow-lg flex flex-col justify-between items-center gap-5">
         <div className="w-full h-[300px] overflow-hidden">
           <img
             src={`${URL_IMAGE}${backdrop_path}`}

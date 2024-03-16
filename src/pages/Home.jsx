@@ -1,26 +1,23 @@
-import { fetchDataMovies } from "../api/movieApi";
 import { CardMovie, Loader } from "../components";
-import useMovie from "../hooks/useMovie";
 import { useEffect, useState } from "react";
+import { useMovie } from "../store/movie.store";
 
 export const Home = () => {
-  const { loader, changeStateLoader } = useMovie();
-
-  const [movies, setMovies] = useState([]);
+  const [loader, setLoader] = useState(false);
+  const movies = useMovie((state) => state.movies);
+  const setMovies = useMovie((state) => state.setMovies);
 
   useEffect(() => {
     const fetchMovieAll = async () => {
       try {
-        changeStateLoader(true);
-        const { results } = await fetchDataMovies();
-        setMovies(results);
+        setLoader(true);
+        await setMovies();
       } catch (error) {
-        console.log(error);
+        throw error;
       } finally {
-        changeStateLoader(false);
+        setLoader(false);
       }
     };
-
     fetchMovieAll();
   }, []);
 
@@ -31,17 +28,11 @@ export const Home = () => {
   return (
     <>
       {loader ? (
-        <div className="py-52">
-          <Loader />
-        </div>
+        <Loader />
       ) : (
-        <div className="grid grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 place-items-center md:grid-cols-2 xl:grid-cols-3 gap-5">
           {movies &&
-            movies.map((movie) => (
-              <>
-                <CardMovie key={movie.id} movie={movie} />
-              </>
-            ))}
+            movies.map((movie) => <CardMovie key={movie.id} movie={movie} />)}
         </div>
       )}
     </>
