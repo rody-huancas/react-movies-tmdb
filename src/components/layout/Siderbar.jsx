@@ -1,13 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 // icons
-import {
-  RiCloseFill,
-  RiFileVideoLine,
-  RiHeartAddLine,
-  RiHomeLine,
-  RiMenuLine,
-} from "react-icons/ri";
+import { RiCloseFill, RiHeartAddLine, RiHomeLine, RiMenuLine } from "react-icons/ri";
 
 export const Siderbar = () => {
   const [showMenu, setshowMenu] = useState(false);
@@ -38,16 +32,10 @@ export const Siderbar = () => {
             <RiHomeLine /> Home
           </Link>
           <Link
-            to={"/"}
+            to={"/favorites"}
             className="flex items-center gap-4 hover:bg-secondary-900 transition-colors duration-300 py-2 px-5 rounded-xl"
           >
-            <RiFileVideoLine /> Más peliculas
-          </Link>
-          <Link
-            to={"/"}
-            className="flex items-center gap-4 hover:bg-secondary-900 transition-colors duration-300 py-2 px-5 rounded-xl"
-          >
-            <RiHeartAddLine /> Favoritos
+            <RiHeartAddLine /> Favorites
           </Link>
         </nav>
       </div>

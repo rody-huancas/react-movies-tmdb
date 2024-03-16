@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { URL_IMAGE } from "../../constants/globals-constants";
 import { RiEyeLine } from "react-icons/ri";
-import { GrFavorite } from "react-icons/gr";
 import { useMovie } from "../../store/movie.store";
+import { GrFavorite } from "react-icons/gr";
 import { MdFavorite } from "react-icons/md";
 
 export const CardMovie = ({ movie }) => {
@@ -32,7 +32,7 @@ export const CardMovie = ({ movie }) => {
         <div className="w-full flex flex-col gap-3 items-center">
           <h3 className="text-lg font-medium text-center">{title}</h3>
           <button
-            onClick={handleToggleFavorites} // Utiliza la función de manejo de favoritos para agregar/quitar
+            onClick={handleToggleFavorites}
             className={`w-full bg-indigo-600 flex items-center justify-center gap-3 py-2 ${
               isFavorite ? "bg-orange-600/80" : ""
             }`}

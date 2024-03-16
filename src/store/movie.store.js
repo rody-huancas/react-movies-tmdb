@@ -18,9 +18,9 @@ const storeMovie = (set) => ({
     }));
   },
 
-  setMovies: async () => {
+  setMovies: async (page = 1) => {
     try {
-      const response = await fetchDataMovies();
+      const response = await fetchDataMovies(page);
       set({ movies: response.results });
     } catch (error) {
       throw error;
@@ -28,4 +28,6 @@ const storeMovie = (set) => ({
   },
 });
 
-export const useMovie = create(persist(devtools(storeMovie), { name: "movie-storage" }));
+export const useMovie = create(
+  persist(devtools(storeMovie), { name: "movie-storage" })
+);

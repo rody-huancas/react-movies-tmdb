@@ -1,11 +1,11 @@
 import { configApi } from "./clientApi";
 
-export const fetchDataMovies = async () => {
+export const fetchDataMovies = async (page = 1) => {
   try {
-    const { data } = await configApi(`/popular`);
+    const { data } = await configApi(`/popular?page=${page}`);
     return data;
   } catch (error) {
-    console.log(error.message);
+    throw error;
   }
 };
 
@@ -14,6 +14,6 @@ export const fetchDetailMovie = async (id) => {
     const { data } = await configApi(`/${id}`);
     return data;
   } catch (error) {
-    console.log(error.message);
+    throw error;
   }
 };
