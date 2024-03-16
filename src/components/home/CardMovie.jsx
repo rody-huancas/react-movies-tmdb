@@ -1,10 +1,23 @@
 import { Link } from "react-router-dom";
 import { URL_IMAGE } from "../../constants/globals-constants";
-// icons
 import { RiEyeLine } from "react-icons/ri";
+import { GrFavorite } from "react-icons/gr";
+import { useMovie } from "../../store/movie.store";
+import { MdFavorite } from "react-icons/md";
 
 export const CardMovie = ({ movie }) => {
   const { backdrop_path, id, original_title, title } = movie;
+  const { addToFavorites, removeFromFavorites, favoriteMovies } = useMovie();
+
+  const isFavorite = favoriteMovies.includes(id);
+
+  const handleToggleFavorites = () => {
+    if (isFavorite) {
+      removeFromFavorites(id);
+    } else {
+      addToFavorites(id);
+    }
+  };
 
   return (
     <div className="relative overflow-hidden card_item flex w-full max-w-xs flex-col ">
@@ -16,8 +29,24 @@ export const CardMovie = ({ movie }) => {
             className="w-full h-full object-cover rounded-xl"
           />
         </div>
-        <div>
-          <h3>{title}</h3>
+        <div className="w-full flex flex-col gap-3 items-center">
+          <h3 className="text-lg font-medium text-center">{title}</h3>
+          <button
+            onClick={handleToggleFavorites} // Utiliza la función de manejo de favoritos para agregar/quitar
+            className={`w-full bg-indigo-600 flex items-center justify-center gap-3 py-2 ${
+              isFavorite ? "bg-orange-600/80" : ""
+            }`}
+          >
+            {isFavorite ? (
+              <>
+                <MdFavorite /> Remove from favorites
+              </>
+            ) : (
+              <>
+                <GrFavorite /> Add to favorites
+              </>
+            )}
+          </button>
         </div>
       </div>
 

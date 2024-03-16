@@ -4,6 +4,20 @@ import { fetchDataMovies } from "../api/movieApi";
 
 const storeMovie = (set) => ({
   movies: [],
+  favoriteMovies: [],
+
+  addToFavorites: (id) => {
+    set((state) => ({
+      favoriteMovies: [...state.favoriteMovies, id],
+    }));
+  },
+
+  removeFromFavorites: (id) => {
+    set((state) => ({
+      favoriteMovies: state.favoriteMovies.filter((movieId) => movieId !== id),
+    }));
+  },
+
   setMovies: async () => {
     try {
       const response = await fetchDataMovies();
@@ -14,6 +28,4 @@ const storeMovie = (set) => ({
   },
 });
 
-export const useMovie = create()(
-  devtools(storeMovie)
-);
+export const useMovie = create(persist(devtools(storeMovie), { name: "movie-storage" }));
