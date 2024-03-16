@@ -18,7 +18,7 @@ export const DetailMovie = () => {
         const data = await fetchDetailMovie(id);
         setMovie(data);
       } catch (error) {
-        console.log(error);
+        throw error;
       } finally {
         setLoader(false);
       }
